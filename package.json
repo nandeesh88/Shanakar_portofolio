@@ -6,14 +6,10 @@
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
-<<<<<<< HEAD
-    "preview": "vite preview",
-    "deploy": "gh-pages -d dist"
-=======
     "lint": "eslint .",
     "preview": "vite preview",
+    "deploy": "gh-pages -d dist",
     "vercel-build": "npm install --legacy-peer-deps && vite build"
->>>>>>> 75a5e3d545aee527a3882635b2d15000fd0b479b
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
@@ -29,7 +25,6 @@
     "three": "^0.169.0"
   },
   "devDependencies": {
-<<<<<<< HEAD
     "@eslint/js": "^9.36.0",
     "@types/react": "^19.1.16",
     "@types/react-dom": "^19.1.9",
@@ -43,20 +38,5 @@
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.17",
     "vite": "^7.1.7"
-=======
-    "@eslint/js": "^9.13.0",
-    "@types/react": "^18.3.12",
-    "@types/react-dom": "^18.3.1",
-    "@vitejs/plugin-react": "^4.3.3",
-    "autoprefixer": "^10.4.20",
-    "eslint": "^9.13.0",
-    "eslint-plugin-react": "^7.37.2",
-    "eslint-plugin-react-hooks": "^5.0.0",
-    "eslint-plugin-react-refresh": "^0.4.14",
-    "globals": "^15.11.0",
-    "postcss": "^8.4.47",
-    "tailwindcss": "^3.4.14",
-    "vite": "^5.4.10"
->>>>>>> 75a5e3d545aee527a3882635b2d15000fd0b479b
   }
 }
