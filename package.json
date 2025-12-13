@@ -8,8 +8,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "deploy": "gh-pages -d dist",
-    "vercel-build": "npm install --legacy-peer-deps && vite build"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
@@ -40,3 +39,10 @@
     "vite": "^7.1.7"
   }
 }
+```
+
+## **Create `.npmrc` file**
+
+Create a new file called `.npmrc` in your project root with this content:
+```
+legacy-peer-deps=true
