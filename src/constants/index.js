@@ -2,43 +2,36 @@ export const navLinks = [
   {
     id: "home",
     title: "Home",
-    icon: "🏠",
     color: "#4AABFF",
   },
   {
     id: "about",
     title: "About Me",
-    icon: "👤",
     color: "#915EFF",
   },
   {
     id: "tech",
     title: "Skills",
-    icon: "⚙️",
     color: "#10B981",
   },
   {
     id: "education",
     title: "Education",
-    icon: "🎓",
     color: "#EC4899",
   },
   {
     id: "work",
     title: "Projects",
-    icon: "🚀",
     color: "#F59E0B",
   },
   {
     id: "resume",
     title: "Resume",
-    icon: "📄",
     color: "#8B5CF6",
   },
   {
     id: "contact",
     title: "Contact",
-    icon: "✉️",
     color: "#EF4444",
   },
 ];
@@ -81,6 +74,22 @@ export const technologies = [
     name: "Android Studio",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg",
   },
+  {
+  name: "ML",
+  icon: "https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg",
+},
+{
+  name: "AI",
+  icon: "https://cdn-icons-png.flaticon.com/512/8637/8637099.png",
+},
+{
+  name: "MATLAB",
+  icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matlab/matlab-original.svg",
+},
+{
+  name: "Seaborn",
+  icon: "https://seaborn.pydata.org/_images/logo-mark-lightbg.svg",
+},
 ];
 
 export const projects = [

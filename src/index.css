@@ -81,3 +81,35 @@ canvas {
   outline: none;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #0f0f1e;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #915EFF;
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #7c3aed;
+}
+/* Responsive YouTube Video */
+.video-responsive {
+  overflow: hidden;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  position: relative;
+  height: 0;
+}
+
+.video-responsive iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  border-radius: 12px;
+}
