@@ -1,6 +1,7 @@
 import React, { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Decal, Float, OrbitControls, Preload, useTexture } from "@react-three/drei";
+import { isWebGLSupported } from "../../utils/device";
 
 const Ball = (props) => {
   const decal = useTexture(props.imgUrl);
@@ -53,6 +54,12 @@ class ErrorBoundary extends React.Component {
 }
 
 const BallCanvas = ({ icon }) => {
+  if (!isWebGLSupported()) {
+    return <div className="w-28 h-28 flex items-center justify-center bg-tertiary rounded-full">
+      <img src={icon} alt="tech" className="w-16 h-16 object-contain" />
+    </div>; // Fallback to simple image on devices without WebGL
+  }
+
   return (
     <ErrorBoundary>
       <Canvas

@@ -2,6 +2,7 @@ import { useState, useRef, Suspense } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Points, PointMaterial, Preload } from "@react-three/drei";
 import * as random from "maath/random/dist/maath-random.esm";
+import { isWebGLSupported } from "../../utils/device";
 
 const Stars = (props) => {
   const ref = useRef();
@@ -28,6 +29,10 @@ const Stars = (props) => {
 };
 
 const StarsCanvas = () => {
+  if (!isWebGLSupported()) {
+    return null; // Don't render stars on devices without WebGL support
+  }
+
   return (
     // Changed from 'absolute' to 'fixed'
 <div className='w-full h-full fixed inset-0 z-[-1]'>
