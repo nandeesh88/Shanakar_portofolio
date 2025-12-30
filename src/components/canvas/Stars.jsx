@@ -1,8 +1,31 @@
-import { useState, useRef, Suspense } from "react";
+import React, { useState, useRef, Suspense } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Points, PointMaterial, Preload } from "@react-three/drei";
 import * as random from "maath/random/dist/maath-random.esm";
-import { isWebGLSupported } from "../../utils/device";
+import { isWebGLSupported, isMobile } from "../../utils/device";
+
+// Error Boundary Component
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError(error) {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error, errorInfo) {
+    console.log('Stars Canvas Error:', error, errorInfo);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return null; // Don't render anything if there's an error
+    }
+    return this.props.children;
+  }
+}
 
 const Stars = (props) => {
   const ref = useRef();
@@ -29,21 +52,21 @@ const Stars = (props) => {
 };
 
 const StarsCanvas = () => {
-  if (!isWebGLSupported()) {
-    return null; // Don't render stars on devices without WebGL support
+  if (!isWebGLSupported() || isMobile()) {
+    return null; // Don't render stars on mobile or devices without WebGL support
   }
 
   return (
-    // Changed from 'absolute' to 'fixed'
-<div className='w-full h-full fixed inset-0 z-[-1]'>
-      <Canvas camera={{ position: [0, 0, 1] }}>
-        <Suspense fallback={null}>
-          <Stars />
-        </Suspense>
-
-        <Preload all />
-      </Canvas>
-    </div>
+    <ErrorBoundary>
+      <div className='w-full h-full fixed inset-0 z-[-1]'>
+        <Canvas camera={{ position: [0, 0, 1] }}>
+          <Suspense fallback={null}>
+            <Stars />
+          </Suspense>
+          <Preload all />
+        </Canvas>
+      </div>
+    </ErrorBoundary>
   );
 };
 

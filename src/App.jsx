@@ -22,7 +22,7 @@ const App = () => {
         <Navbar />
 
         {/* HOME SECTION */}
-        <section id="home" className='relative w-full h-screen mx-auto'>
+        <section id="home" className='relative w-full min-h-screen mx-auto'>
           <div className='max-w-7xl mx-auto flex flex-col items-center justify-center h-full px-6 relative z-10'>
 
             {/* Default Profile Photo */}

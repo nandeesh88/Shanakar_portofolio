@@ -1,8 +1,31 @@
-import { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { BsFillChatFill } from 'react-icons/bs';
 import { IoClose, IoSend } from 'react-icons/io5';
 import { sendMessageToAI } from '../../services/aiService';
+
+// Error Boundary Component
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError(error) {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error, errorInfo) {
+    console.log('Chatbot Error:', error, errorInfo);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return null; // Don't render chatbot if there's an error
+    }
+    return this.props.children;
+  }
+}
 
 const ChatbotWidget = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -269,4 +292,10 @@ const ChatbotWidget = () => {
   );
 };
 
-export default ChatbotWidget;
+const ChatbotWidgetWithErrorBoundary = () => (
+  <ErrorBoundary>
+    <ChatbotWidget />
+  </ErrorBoundary>
+);
+
+export default ChatbotWidgetWithErrorBoundary;
